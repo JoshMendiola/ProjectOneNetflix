@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 @RestController
 public class DefinitionController
@@ -36,6 +37,16 @@ public class DefinitionController
     public List<Definition> GetAllDefinitions()
     {
         return definitionList;
+    }
+
+    @GetMapping(value = "/definition/random")
+    @ResponseStatus(value = HttpStatus.OK)
+    public Definition GetRandomDefinition()
+    {
+        Definition selectedDefinition = null;
+        Random rand = new Random();
+        selectedDefinition = definitionList.get(rand.nextInt(definitionList.size()));
+        return selectedDefinition;
     }
 
     @GetMapping(value = "/definition/{word}")
