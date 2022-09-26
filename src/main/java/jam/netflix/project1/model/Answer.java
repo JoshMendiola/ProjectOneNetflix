@@ -5,10 +5,13 @@ public class Answer
     int id;
     String answer;
 
-    public Answer(int id, String answer)
+    String question;
+
+    public Answer(int id, String question, String answer)
     {
         this.id = id;
         this.answer = answer;
+        this.question = question;
     }
 
     public int getId()
@@ -29,6 +32,16 @@ public class Answer
     public void setAnswer(String answer)
     {
         this.answer = answer;
+    }
+
+    public String getQuestion()
+    {
+        return question;
+    }
+
+    public void setQuestion(String question)
+    {
+        this.question = question;
     }
 
 }
