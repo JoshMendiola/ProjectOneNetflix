@@ -46,7 +46,7 @@ public class DefinitionControllerTest
     public void shouldGetSpecificDefinitionByWord() throws Exception
     {
         String outputJson = mapper.writeValueAsString(definitionList);
-        mockMvc.perform(get("/definition/Object"))
+        mockMvc.perform(get("/definition/choose/Object"))
                 .andDo(print())
                 .andExpect(status().isOk());
     }

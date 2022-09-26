@@ -49,7 +49,7 @@ public class DefinitionController
         return selectedDefinition;
     }
 
-    @GetMapping(value = "/definition/{word}")
+    @GetMapping(value = "/definition/choose/{word}")
     @ResponseStatus(value = HttpStatus.OK)
     public Definition GetDefinitionByWord(@PathVariable String word)
     {

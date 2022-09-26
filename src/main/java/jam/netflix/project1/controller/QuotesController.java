@@ -63,7 +63,7 @@ public class QuotesController
     }
 
     //searches the list for quote by ID in the case that a user does not want a random quote
-    @GetMapping(value = "/quotes/{quoteID}")
+    @GetMapping(value = "/quotes/choose/{quoteID}")
     @ResponseStatus(value = HttpStatus.OK)
     public Quote GetQuotesById(@PathVariable int quoteID)
     {

@@ -48,7 +48,7 @@ public class QuotesControllerTest
     public void shouldGetSpecificQuote() throws Exception
     {
         String outputJson = mapper.writeValueAsString(quoteList);
-        mockMvc.perform(get("/quotes/2"))
+        mockMvc.perform(get("/quotes/choose/2"))
                 .andDo(print())
                 .andExpect(status().isOk());
     }
