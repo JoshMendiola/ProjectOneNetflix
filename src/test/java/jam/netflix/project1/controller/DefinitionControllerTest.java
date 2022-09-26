@@ -55,7 +55,7 @@ public class DefinitionControllerTest
     public void shouldReturnFailWithBadWord() throws Exception
     {
         String outputJson = mapper.writeValueAsString(definitionList);
-        mockMvc.perform(get("/Definition/HowDoIExitVim"))
+        mockMvc.perform(get("/Definition/choose/HowDoIExitVim"))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }

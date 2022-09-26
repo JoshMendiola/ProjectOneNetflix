@@ -57,7 +57,7 @@ public class QuotesControllerTest
     public void shouldReturnFailWithBadId() throws Exception
     {
         String outputJson = mapper.writeValueAsString(quoteList);
-        mockMvc.perform(get("/quotes/12"))
+        mockMvc.perform(get("/quotes/choose/12"))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
