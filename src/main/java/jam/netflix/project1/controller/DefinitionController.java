@@ -1,7 +1,6 @@
 package jam.netflix.project1.controller;
 
 import jam.netflix.project1.model.Definition;
-import jam.netflix.project1.model.Quote;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

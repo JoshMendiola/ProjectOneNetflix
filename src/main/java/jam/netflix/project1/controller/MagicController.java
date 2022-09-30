@@ -38,14 +38,39 @@ public class MagicController
         return answerList;
     }
 
-    @RequestMapping(value = "/magic", method = RequestMethod.POST)
-    @ResponseStatus(value = HttpStatus.CREATED)
+    @RequestMapping(value = "/magic/choose/{id}", method = RequestMethod.GET)
+    @ResponseStatus(value = HttpStatus.OK)
+    public Answer GetAnswerByID(@PathVariable int id)
+    {
+        for(Answer thisAnswer : answerList)
+        {
+            if (thisAnswer.getId() == id)
+            {
+                return thisAnswer;
+            }
+        }
+        throw new IllegalArgumentException("ID is not in magic system");
+    }
+
+    @RequestMapping(value = "/magic/random/body", method = RequestMethod.POST)
+    @ResponseStatus(value = HttpStatus.OK)
     public ResponseEntity<Answer> getAnswerByQuestion(@RequestBody Question question)
     {
         Answer selectedAnswer = null;
         Random rand = new Random();
         selectedAnswer = answerList.get(rand.nextInt(answerList.size()));
         selectedAnswer.setQuestion(question.getQuestion());
+        return new ResponseEntity(selectedAnswer,HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/magic/random", method = RequestMethod.POST)
+    @ResponseStatus(value = HttpStatus.OK)
+    public ResponseEntity<Answer> getAnswerByQuestionNoBody()
+    {
+        Answer selectedAnswer = null;
+        Random rand = new Random();
+        selectedAnswer = answerList.get(rand.nextInt(answerList.size()));
+        selectedAnswer.setQuestion("");
         return new ResponseEntity(selectedAnswer,HttpStatus.OK);
     }
 }
